@@ -5,6 +5,7 @@
 #SBATCH -e %x_%j.err
 #SBATCH -n 1
 #SBATCH -t 25
+#SBATCH --reservation ub-il3
 
 module load conda
 conda activate test-mpi
