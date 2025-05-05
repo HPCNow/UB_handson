@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH -J hybrid
+#SBATCH -o %x_%j.out
+#SBATCH -e %x_%j.err
+#SBATCH -n 8
+#SBATCH -N 4
+#SBATCH -t 25
+
+module load conda
+conda activate test-mpi
+
+mpiexec -n 4 python hybrid.py

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH -J python_mpi 
+#SBATCH -o %x_%j.out
+#SBATCH -e %x_%j.err
+#SBATCH -n 4
+#SBATCH -N 4
+#SBATCH -t 25
+
+module load conda
+conda activate test-mpi
+
+start_time="$(date -u +%s.%N)"
+mpiexec -n 4 python mpi.py
+end_time="$(date -u +%s.%N)"
+elapsed="$(bc <<<"$end_time-$start_time")"
+echo "Total of $elapsed seconds elapsed for process"
