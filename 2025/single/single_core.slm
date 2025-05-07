@@ -6,6 +6,8 @@
 #SBATCH -n 1
 #SBATCH -t 25
 #SBATCH --reservation ub-il3
+#SBATCH -p std
+
 
 module load conda
 conda activate test-mpi
